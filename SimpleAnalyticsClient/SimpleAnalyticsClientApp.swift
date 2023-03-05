@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct SimpleAnalyticsClientApp: App {
     var body: some Scene {
-        WindowGroup {
+        Window("Simple Analytics Test Client", id: "Main") {
             ContentView()
         }
     }
