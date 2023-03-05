@@ -22,10 +22,6 @@ struct ContentView: View {
         }
         .padding()
     }
-    
-    private func sendCreateEvent() {
-        print(#function)
-    }
 }
 
 struct ContentView_Previews: PreviewProvider {
