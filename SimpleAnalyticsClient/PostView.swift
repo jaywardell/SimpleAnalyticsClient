@@ -10,6 +10,8 @@ import SimpleAnalyticsTypes
 
 struct PostView: View {
         
+    let userID = UUID()
+    
     var body: some View {
         Button(action: post) {
             Text("Post a Random Event")
@@ -19,7 +21,7 @@ struct PostView: View {
     private func post() {
         Task {
             do {
-                let event = UserEvent(action: .allCases.randomElement()!, userID: UUID(), flag: .random())
+                let event = UserEvent(action: .allCases.randomElement()!, userID: userID, flag: .random())
                                 
                 let payload = try JSONEncoder().encode(event)
                 
