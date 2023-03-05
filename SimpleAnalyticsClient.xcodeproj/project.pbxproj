@@ -11,6 +11,8 @@
 		7CFD2D4729B4D66300394C7E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2D4629B4D66300394C7E /* ContentView.swift */; };
 		7CFD2D4929B4D66400394C7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CFD2D4829B4D66400394C7E /* Assets.xcassets */; };
 		7CFD2D4C29B4D66400394C7E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CFD2D4B29B4D66400394C7E /* Preview Assets.xcassets */; };
+		7CFD2D5429B4D67F00394C7E /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2D5329B4D67F00394C7E /* PostView.swift */; };
+		7CFD2D5629B4D68500394C7E /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2D5529B4D68500394C7E /* EventListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		7CFD2D4829B4D66400394C7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CFD2D4B29B4D66400394C7E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7CFD2D4D29B4D66400394C7E /* SimpleAnalyticsClient.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SimpleAnalyticsClient.entitlements; sourceTree = "<group>"; };
+		7CFD2D5329B4D67F00394C7E /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		7CFD2D5529B4D68500394C7E /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 			children = (
 				7CFD2D4429B4D66300394C7E /* SimpleAnalyticsClientApp.swift */,
 				7CFD2D4629B4D66300394C7E /* ContentView.swift */,
+				7CFD2D5329B4D67F00394C7E /* PostView.swift */,
+				7CFD2D5529B4D68500394C7E /* EventListView.swift */,
 				7CFD2D4829B4D66400394C7E /* Assets.xcassets */,
 				7CFD2D4D29B4D66400394C7E /* SimpleAnalyticsClient.entitlements */,
 				7CFD2D4A29B4D66400394C7E /* Preview Content */,
@@ -139,7 +145,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CFD2D5629B4D68500394C7E /* EventListView.swift in Sources */,
 				7CFD2D4729B4D66300394C7E /* ContentView.swift in Sources */,
+				7CFD2D5429B4D67F00394C7E /* PostView.swift in Sources */,
 				7CFD2D4529B4D66300394C7E /* SimpleAnalyticsClientApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

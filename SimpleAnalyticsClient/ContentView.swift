@@ -9,13 +9,22 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        TabView {
+            PostView(post: sendCreateEvent)
+                .tabItem {
+                    Label("Create Event", systemImage: "square.and.arrow.up")
+                }
+
+            EventListView(events: [])
+                .tabItem {
+                    Label("Events", systemImage: "list.bullet")
+                }
         }
         .padding()
+    }
+    
+    private func sendCreateEvent() {
+        print(#function)
     }
 }
 
