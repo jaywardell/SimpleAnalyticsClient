@@ -8,18 +8,20 @@
 import SwiftUI
 
 struct PostView: View {
-    
-    let post: ()->()
-    
+        
     var body: some View {
         Button(action: post) {
             Text("Post a Random Event")
         }
     }
+    
+    private func post() {
+        print(#function)
+    }
 }
 
 struct PostView_Previews: PreviewProvider {
     static var previews: some View {
-        PostView() {}
+        PostView()
     }
 }

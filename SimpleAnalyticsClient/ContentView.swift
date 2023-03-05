@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            PostView(post: sendCreateEvent)
+            PostView()
                 .tabItem {
                     Label("Create Event", systemImage: "square.and.arrow.up")
                 }
