@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SimpleAnalyticsTypes
 
 struct EventListView: View {
     
@@ -16,7 +17,11 @@ struct EventListView: View {
         let userID: String
     }
     
-    let events: [Event]
+    @State private var events: [Event]
+    
+    init(events: [Event]) {
+        self.events = events
+    }
     
     var body: some View {
         List(events, id: \.self) { event in
@@ -26,6 +31,32 @@ struct EventListView: View {
                 Text(event.date, style: .time)
                 Text(event.action)
             }
+        }
+        .task(retrieveEvents)
+    }
+    
+    @Sendable private func retrieveEvents() async {
+        do {
+            let components = URLComponents.testServer()
+                .addingPathComponent("userevents")
+            let request = URLRequest(components)!
+
+            let (data, response) = try await URLSession.shared.data(for: request)
+            let statusCode = (response as? HTTPURLResponse)?.statusCode
+            print("status code: \(String(describing: statusCode))")
+            print("response: \"\(String(data: data, encoding: .utf8) ?? "no data")\"")
+            
+            let userevents = try JSONDecoder().decode([UserEvent].self, from: data)
+            
+            events = userevents.map {
+                Event(date: Date(timeIntervalSinceReferenceDate: $0.timestamp),
+                      action: $0.action.rawValue.capitalized,
+                      flag: $0.flag,
+                      userID: $0.userID.uuidString)
+            }
+        }
+        catch {
+            print(error)
         }
     }
 }
