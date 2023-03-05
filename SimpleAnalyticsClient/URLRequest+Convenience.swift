@@ -18,7 +18,7 @@ extension URLRequest {
         var asString: String { rawValue.uppercased() }
     }
         
-    init?(_ components: URLComponents, method: Method = .get, body: Data? = nil, headers: [(String, String)]) {
+    init?(_ components: URLComponents, method: Method = .get, body: Data? = nil, headers: [(String, String)] = []) {
         guard let url = components.url else { return nil }
         self.init(url: url)
         self.httpMethod = method.asString
