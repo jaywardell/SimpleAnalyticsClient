@@ -10,11 +10,6 @@ import Foundation
 extension URLComponents {
     
     static func testServer() -> URLComponents {
-        var out = URLComponents()
-        out.scheme = "http"
-        out.host = "localhost"
-        out.port = 8080
-        
-        return out
+        URLComponents(scheme: .http, host: "localhost", port: 8080)
     }
 }

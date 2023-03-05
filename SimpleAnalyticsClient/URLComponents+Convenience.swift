@@ -9,11 +9,15 @@ import Foundation
 
 extension URLComponents {
 
-    struct Scheme {
-        static var https: String { #function }
-        static var http: String { #function }
-        static var ftp: String { #function }
-        static var mailto: String { #function }
+    enum Scheme: String {
+        case http, https, ftp, mailto
+    }
+    
+    init(scheme: Scheme = .https, host: String, port: Int?) {
+        self.init()
+        self.scheme = scheme.rawValue
+        self.host = host
+        self.port = port
     }
     
     func addingPathComponent(_ string: String) -> URLComponents {
