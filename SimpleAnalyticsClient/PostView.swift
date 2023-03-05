@@ -15,9 +15,7 @@ struct PostView: View {
             Text("Post a Random Event")
         }
     }
-    
-    
-    
+
     private func post() {
         Task {
             do {
