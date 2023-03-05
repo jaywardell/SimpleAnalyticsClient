@@ -18,23 +18,70 @@ struct EventListView: View {
     }
     
     @State private var events: [Event]
-    
+    @State private var userCount = 0
+    @State private var eventCount = 0
+
     init(events: [Event]) {
         self.events = events
     }
     
     var body: some View {
-        List(events, id: \.self) { event in
+        VStack {
+            List(events, id: \.self) { event in
+                HStack {
+                    Image(systemName: event.flag ? "checkmark.circle" : "circle")
+                    Text(event.date, style: .date)
+                    Text(event.date, style: .time)
+                    Text(event.action)
+                }
+            }
             HStack {
-                Image(systemName: event.flag ? "checkmark.circle" : "circle")
-                Text(event.date, style: .date)
-                Text(event.date, style: .time)
-                Text(event.action)
+                Text("\(eventCount) events")
+                Spacer()
+                Text("\(userCount) users")
             }
         }
         .task(retrieveEvents)
+        .task(retrieveUserCount)
+        .task(retrieveEventCount)
     }
-    
+
+    @Sendable private func retrieveUserCount() async {
+        do {
+            let components = URLComponents.testServer()
+                .addingPathComponent("users/count")
+            let request = URLRequest(components)!
+
+            let (data, response) = try await URLSession.shared.data(for: request)
+            let statusCode = (response as? HTTPURLResponse)?.statusCode
+            print("status code: \(String(describing: statusCode))")
+            print("response: \"\(String(data: data, encoding: .utf8) ?? "no data")\"")
+
+            userCount = try JSONDecoder().decode(Int.self, from: data)
+        }
+        catch {
+            print(error)
+        }
+    }
+
+    @Sendable private func retrieveEventCount() async {
+        do {
+            let components = URLComponents.testServer()
+                .addingPathComponent("userevents/count")
+            let request = URLRequest(components)!
+
+            let (data, response) = try await URLSession.shared.data(for: request)
+            let statusCode = (response as? HTTPURLResponse)?.statusCode
+            print("status code: \(String(describing: statusCode))")
+            print("response: \"\(String(data: data, encoding: .utf8) ?? "no data")\"")
+
+            eventCount = try JSONDecoder().decode(Int.self, from: data)
+        }
+        catch {
+            print(error)
+        }
+    }
+
     @Sendable private func retrieveEvents() async {
         do {
             let components = URLComponents.testServer()
