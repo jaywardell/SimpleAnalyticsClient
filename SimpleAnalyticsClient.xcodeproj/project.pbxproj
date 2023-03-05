@@ -13,6 +13,10 @@
 		7CFD2D4C29B4D66400394C7E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CFD2D4B29B4D66400394C7E /* Preview Assets.xcassets */; };
 		7CFD2D5429B4D67F00394C7E /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2D5329B4D67F00394C7E /* PostView.swift */; };
 		7CFD2D5629B4D68500394C7E /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2D5529B4D68500394C7E /* EventListView.swift */; };
+		7CFD2D5829B4E31A00394C7E /* URLComponents+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2D5729B4E31A00394C7E /* URLComponents+Constants.swift */; };
+		7CFD2D5A29B4E4BE00394C7E /* URLRequest+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2D5929B4E4BE00394C7E /* URLRequest+Convenience.swift */; };
+		7CFD2D5C29B4E4C200394C7E /* URLComponents+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2D5B29B4E4C200394C7E /* URLComponents+Convenience.swift */; };
+		7CFD2D5F29B4ED2D00394C7E /* SimpleAnalyticsTypes in Frameworks */ = {isa = PBXBuildFile; productRef = 7CFD2D5E29B4ED2D00394C7E /* SimpleAnalyticsTypes */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,9 @@
 		7CFD2D4D29B4D66400394C7E /* SimpleAnalyticsClient.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SimpleAnalyticsClient.entitlements; sourceTree = "<group>"; };
 		7CFD2D5329B4D67F00394C7E /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		7CFD2D5529B4D68500394C7E /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
+		7CFD2D5729B4E31A00394C7E /* URLComponents+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+Constants.swift"; sourceTree = "<group>"; };
+		7CFD2D5929B4E4BE00394C7E /* URLRequest+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+Convenience.swift"; sourceTree = "<group>"; };
+		7CFD2D5B29B4E4C200394C7E /* URLComponents+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLComponents+Convenience.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CFD2D5F29B4ED2D00394C7E /* SimpleAnalyticsTypes in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +67,9 @@
 				7CFD2D4429B4D66300394C7E /* SimpleAnalyticsClientApp.swift */,
 				7CFD2D4629B4D66300394C7E /* ContentView.swift */,
 				7CFD2D5329B4D67F00394C7E /* PostView.swift */,
+				7CFD2D5729B4E31A00394C7E /* URLComponents+Constants.swift */,
+				7CFD2D5929B4E4BE00394C7E /* URLRequest+Convenience.swift */,
+				7CFD2D5B29B4E4C200394C7E /* URLComponents+Convenience.swift */,
 				7CFD2D5529B4D68500394C7E /* EventListView.swift */,
 				7CFD2D4829B4D66400394C7E /* Assets.xcassets */,
 				7CFD2D4D29B4D66400394C7E /* SimpleAnalyticsClient.entitlements */,
@@ -91,6 +102,9 @@
 			dependencies = (
 			);
 			name = SimpleAnalyticsClient;
+			packageProductDependencies = (
+				7CFD2D5E29B4ED2D00394C7E /* SimpleAnalyticsTypes */,
+			);
 			productName = SimpleAnalyticsClient;
 			productReference = 7CFD2D4129B4D66300394C7E /* SimpleAnalyticsClient.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +133,9 @@
 				Base,
 			);
 			mainGroup = 7CFD2D3829B4D66300394C7E;
+			packageReferences = (
+				7CFD2D5D29B4ED2D00394C7E /* XCRemoteSwiftPackageReference "SimpleAnalyticsTypes" */,
+			);
 			productRefGroup = 7CFD2D4229B4D66300394C7E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -146,9 +163,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CFD2D5629B4D68500394C7E /* EventListView.swift in Sources */,
+				7CFD2D5A29B4E4BE00394C7E /* URLRequest+Convenience.swift in Sources */,
+				7CFD2D5C29B4E4C200394C7E /* URLComponents+Convenience.swift in Sources */,
 				7CFD2D4729B4D66300394C7E /* ContentView.swift in Sources */,
 				7CFD2D5429B4D67F00394C7E /* PostView.swift in Sources */,
 				7CFD2D4529B4D66300394C7E /* SimpleAnalyticsClientApp.swift in Sources */,
+				7CFD2D5829B4E31A00394C7E /* URLComponents+Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +364,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7CFD2D5D29B4ED2D00394C7E /* XCRemoteSwiftPackageReference "SimpleAnalyticsTypes" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jaywardell/SimpleAnalyticsTypes";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7CFD2D5E29B4ED2D00394C7E /* SimpleAnalyticsTypes */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CFD2D5D29B4ED2D00394C7E /* XCRemoteSwiftPackageReference "SimpleAnalyticsTypes" */;
+			productName = SimpleAnalyticsTypes;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7CFD2D3929B4D66300394C7E /* Project object */;
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SimpleAnalyticsTypes
 
 struct PostView: View {
         
@@ -15,8 +16,31 @@ struct PostView: View {
         }
     }
     
+    
+    
     private func post() {
-        print(#function)
+        Task {
+            do {
+                let event = UserEvent(action: .allCases.randomElement()!, userID: UUID(), flag: .random())
+                                
+                let payload = try JSONEncoder().encode(event)
+                
+                let components = URLComponents.testServer()
+                    .addingPathComponent("userevent")
+                let request = URLRequest(components, method: .post, body: payload, headers: [
+                    ("content-type", "application/json"),
+                    ("verbose", "true")
+                ] )!
+
+                let (data, response) = try await URLSession.shared.data(for: request)
+                let statusCode = (response as? HTTPURLResponse)?.statusCode
+                print("status code: \(String(describing: statusCode))")
+                print("response: \"\(String(data: data, encoding: .utf8) ?? "no data")\"")
+            }
+            catch {
+                print(error)
+            }
+        }
     }
 }
 
