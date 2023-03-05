@@ -31,6 +31,7 @@
 		7CFD2D5729B4E31A00394C7E /* URLComponents+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+Constants.swift"; sourceTree = "<group>"; };
 		7CFD2D5929B4E4BE00394C7E /* URLRequest+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+Convenience.swift"; sourceTree = "<group>"; };
 		7CFD2D5B29B4E4C200394C7E /* URLComponents+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLComponents+Convenience.swift"; sourceTree = "<group>"; };
+		7CFD2D6029B50B3400394C7E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +49,7 @@
 		7CFD2D3829B4D66300394C7E = {
 			isa = PBXGroup;
 			children = (
+				7CFD2D6029B50B3400394C7E /* README.md */,
 				7CFD2D4329B4D66300394C7E /* SimpleAnalyticsClient */,
 				7CFD2D4229B4D66300394C7E /* Products */,
 			);
