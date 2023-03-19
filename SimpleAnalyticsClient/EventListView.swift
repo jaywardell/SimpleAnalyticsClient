@@ -52,12 +52,7 @@ struct EventListView: View {
                 .addingPathComponent("users/count")
             let request = URLRequest(components)!
 
-            let (data, response) = try await URLSession.shared.data(for: request)
-            let statusCode = (response as? HTTPURLResponse)?.statusCode
-            print("status code: \(String(describing: statusCode))")
-            print("response: \"\(String(data: data, encoding: .utf8) ?? "no data")\"")
-
-            userCount = try JSONDecoder().decode(Int.self, from: data)
+            userCount = try await URLSession.shared.retrieve(request)
         }
         catch {
             print(error)
@@ -70,12 +65,7 @@ struct EventListView: View {
                 .addingPathComponent("userevents/count")
             let request = URLRequest(components)!
 
-            let (data, response) = try await URLSession.shared.data(for: request)
-            let statusCode = (response as? HTTPURLResponse)?.statusCode
-            print("status code: \(String(describing: statusCode))")
-            print("response: \"\(String(data: data, encoding: .utf8) ?? "no data")\"")
-
-            eventCount = try JSONDecoder().decode(Int.self, from: data)
+            eventCount = try await URLSession.shared.retrieve(request)
         }
         catch {
             print(error)
@@ -87,14 +77,8 @@ struct EventListView: View {
             let components = URLComponents.testServer()
                 .addingPathComponent("userevents")
             let request = URLRequest(components)!
-
-            let (data, response) = try await URLSession.shared.data(for: request)
-            let statusCode = (response as? HTTPURLResponse)?.statusCode
-            print("status code: \(String(describing: statusCode))")
-            print("response: \"\(String(data: data, encoding: .utf8) ?? "no data")\"")
             
-            let userevents = try JSONDecoder().decode([UserEvent].self, from: data)
-            
+            let userevents: [UserEvent] = try await URLSession.shared.retrieve(request)
             events = userevents.map {
                 Event(date: Date(timeIntervalSinceReferenceDate: $0.timestamp),
                       action: $0.action.rawValue.capitalized,
