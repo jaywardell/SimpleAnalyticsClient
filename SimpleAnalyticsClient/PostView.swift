@@ -33,7 +33,7 @@ struct PostView: View {
                     ("verbose", "true")
                 ] )!
                 
-                try await URLSession.shared.post(request)
+                try await URLSession.shared.send(request)
             }
             catch {
                 print(error)

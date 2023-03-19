@@ -14,25 +14,26 @@ extension URLSession {
         case badStatusCode(Int, String)
     }
     
-    func retrieve<T: Decodable>(_ request: URLRequest) async throws -> T {
-        
+    private func retrieveData(from request: URLRequest) async throws -> Data {
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let httpResponse = (response as? HTTPURLResponse) else { throw RetrievalError.notHTTPResponse }
         guard httpResponse.statusCode == 200 else {
             let payload = String(data: data, encoding: .utf8) ?? "no data"
             throw RetrievalError.badStatusCode(httpResponse.statusCode, payload)
         }
+        
+        return data
+    }
+    
+    func retrieve<T: Decodable>(_ request: URLRequest) async throws -> T {
+        let data = try await retrieveData(from: request)
         
         return try JSONDecoder().decode(T.self, from: data)
     }
 
-    func post(_ request: URLRequest) async throws {
-        let (data, response) = try await URLSession.shared.data(for: request)
-        guard let httpResponse = (response as? HTTPURLResponse) else { throw RetrievalError.notHTTPResponse }
-        guard httpResponse.statusCode == 200 else {
-            let payload = String(data: data, encoding: .utf8) ?? "no data"
-            throw RetrievalError.badStatusCode(httpResponse.statusCode, payload)
-        }
+    func send(_ request: URLRequest) async throws {
+        
+        _ = try await retrieveData(from: request)
     }
 }
 
