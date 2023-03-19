@@ -46,5 +46,4 @@ extension URLSession.RetrievalError: LocalizedError {
         case .badStatusCode(let statuscode, let data): return "HTTP Response status code: \(statuscode) \(HTTPURLResponse.localizedString(forStatusCode: statuscode)) \(data)"
         }
     }
-
 }
