@@ -55,7 +55,7 @@ struct EventListView: View {
             userCount = try await URLSession.shared.retrieve(request)
         }
         catch {
-            print(error)
+            print(error.localizedDescription)
         }
     }
 
@@ -68,7 +68,7 @@ struct EventListView: View {
             eventCount = try await URLSession.shared.retrieve(request)
         }
         catch {
-            print(error)
+            print(error.localizedDescription)
         }
     }
 
@@ -87,7 +87,7 @@ struct EventListView: View {
             }
         }
         catch {
-            print(error)
+            print(error.localizedDescription)
         }
     }
 }

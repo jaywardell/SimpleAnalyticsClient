@@ -36,7 +36,7 @@ struct PostView: View {
                 try await URLSession.shared.send(request)
             }
             catch {
-                print(error)
+                print(error.localizedDescription)
             }
         }
     }
