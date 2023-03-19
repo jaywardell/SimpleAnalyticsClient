@@ -27,15 +27,13 @@ struct PostView: View {
                 
                 let components = URLComponents.testServer()
                     .addingPathComponent("userevent")
+                
                 let request = URLRequest(components, method: .post, body: payload, headers: [
                     ("content-type", "application/json"),
                     ("verbose", "true")
                 ] )!
-
-                let (data, response) = try await URLSession.shared.data(for: request)
-                let statusCode = (response as? HTTPURLResponse)?.statusCode
-                print("status code: \(String(describing: statusCode))")
-                print("response: \"\(String(data: data, encoding: .utf8) ?? "no data")\"")
+                
+                try await URLSession.shared.post(request)
             }
             catch {
                 print(error)

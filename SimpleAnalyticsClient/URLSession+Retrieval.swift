@@ -25,7 +25,15 @@ extension URLSession {
         
         return try JSONDecoder().decode(T.self, from: data)
     }
-    
+
+    func post(_ request: URLRequest) async throws {
+        let (data, response) = try await URLSession.shared.data(for: request)
+        guard let httpResponse = (response as? HTTPURLResponse) else { throw RetrievalError.notHTTPResponse }
+        guard httpResponse.statusCode == 200 else {
+            let payload = String(data: data, encoding: .utf8) ?? "no data"
+            throw RetrievalError.badStatusCode(httpResponse.statusCode, payload)
+        }
+    }
 }
 
 extension URLSession.RetrievalError: LocalizedError {
