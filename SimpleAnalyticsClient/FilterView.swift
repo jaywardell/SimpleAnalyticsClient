@@ -14,15 +14,21 @@ struct FilterView: View {
     @State private var action: UserEvent.Action?
 
     var body: some View {
-        FilterByBoolView(title: "Flag", value: $flag)
-            .onChange(of: flag) { newValue in
-                print(newValue)
+        Grid(alignment: .leading) {
+            GridRow {
+                FilterByBoolView(title: "Flag", value: $flag)
+                    .onChange(of: flag) { newValue in
+                        print(newValue)
+                    }
             }
-        
-        FilterByActionView(value: $action)
-            .onChange(of: action) { newValue in
-                print(newValue?.rawValue)
+
+            GridRow {
+                FilterByActionView(value: $action)
+                    .onChange(of: action) { newValue in
+                        print(newValue?.rawValue)
+                    }
             }
+        }
     }
     
 //    var body: some View {

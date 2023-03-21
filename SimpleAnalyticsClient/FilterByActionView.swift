@@ -22,17 +22,18 @@ struct FilterByActionView: View {
             set: { value = UserEvent.Action(rawValue: $0) }
         )
 
-        return HStack {
+        return Group {
             
             Toggle(isOn: matchAction) {
-                Picker("Action", selection: flagValue, content: {
-                    ForEach(UserEvent.Action.allCases, id: \.rawValue) { action in
-                        Text(action.rawValue)
-                    }
-                })
-                .disabled(!matchAction.wrappedValue)
             }
-            
+
+            Picker("Action", selection: flagValue, content: {
+                ForEach(UserEvent.Action.allCases, id: \.rawValue) { action in
+                    Text(action.rawValue)
+                }
+            })
+            .disabled(!matchAction.wrappedValue)
+
         }
     }
 }

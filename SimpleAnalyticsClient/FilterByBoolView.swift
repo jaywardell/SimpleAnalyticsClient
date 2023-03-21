@@ -22,7 +22,7 @@ struct FilterByBoolView: View {
             set: { value = $0 }
         )
 
-        return HStack {
+        return Group {
             
             Toggle(isOn: matchFlag) {
 //                Picker(selection: flagValue, content: {
@@ -32,11 +32,12 @@ struct FilterByBoolView: View {
 //                    Text(title)
 //                })
 //                .pickerStyle(.radioGroup)
-                Toggle(isOn: flagValue) {
-                    Text("Flag")
-                }
-                .disabled(!matchFlag.wrappedValue)
             }
+
+            Toggle(isOn: flagValue) {
+                Text("Flag")
+            }
+            .disabled(!matchFlag.wrappedValue)
         }
     }
 }
