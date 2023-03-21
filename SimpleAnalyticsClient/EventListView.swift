@@ -27,6 +27,7 @@ struct EventListView: View {
     
     var body: some View {
         VStack {
+            FilterView()
             List(events, id: \.self) { event in
                 HStack {
                     Image(systemName: event.flag ? "checkmark.circle" : "circle")

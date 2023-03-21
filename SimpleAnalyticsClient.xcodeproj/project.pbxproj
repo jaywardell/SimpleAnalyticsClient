@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C6CE4EE29C9314A00CF37E9 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6CE4ED29C9314A00CF37E9 /* FilterView.swift */; };
 		7CD56E6329C6A3B60037EF96 /* URLSession+Retrieval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD56E6229C6A3B60037EF96 /* URLSession+Retrieval.swift */; };
 		7CFD2D4529B4D66300394C7E /* SimpleAnalyticsClientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2D4429B4D66300394C7E /* SimpleAnalyticsClientApp.swift */; };
 		7CFD2D4729B4D66300394C7E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2D4629B4D66300394C7E /* ContentView.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C6CE4ED29C9314A00CF37E9 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		7CD56E6229C6A3B60037EF96 /* URLSession+Retrieval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Retrieval.swift"; sourceTree = "<group>"; };
 		7CFD2D4129B4D66300394C7E /* SimpleAnalyticsClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleAnalyticsClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CFD2D4429B4D66300394C7E /* SimpleAnalyticsClientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAnalyticsClientApp.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				7CFD2D4629B4D66300394C7E /* ContentView.swift */,
 				7CFD2D5329B4D67F00394C7E /* PostView.swift */,
 				7CFD2D5529B4D68500394C7E /* EventListView.swift */,
+				7C6CE4ED29C9314A00CF37E9 /* FilterView.swift */,
 				7CD56E6229C6A3B60037EF96 /* URLSession+Retrieval.swift */,
 				7CFD2D5729B4E31A00394C7E /* URLComponents+Constants.swift */,
 				7CFD2D5929B4E4BE00394C7E /* URLRequest+Convenience.swift */,
@@ -171,6 +174,7 @@
 				7CFD2D5A29B4E4BE00394C7E /* URLRequest+Convenience.swift in Sources */,
 				7CFD2D5C29B4E4C200394C7E /* URLComponents+Convenience.swift in Sources */,
 				7CFD2D4729B4D66300394C7E /* ContentView.swift in Sources */,
+				7C6CE4EE29C9314A00CF37E9 /* FilterView.swift in Sources */,
 				7CFD2D5429B4D67F00394C7E /* PostView.swift in Sources */,
 				7CD56E6329C6A3B60037EF96 /* URLSession+Retrieval.swift in Sources */,
 				7CFD2D4529B4D66300394C7E /* SimpleAnalyticsClientApp.swift in Sources */,
