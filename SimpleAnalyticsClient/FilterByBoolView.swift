@@ -24,12 +24,11 @@ struct FilterByBoolView: View {
         return HStack {
             
             Toggle(isOn: matchFlag) {
-                Text("")
+                Toggle(isOn: flagValue) {
+                    Text("Flag")
+                }
+                .disabled(!matchFlag.wrappedValue)
             }
-            Toggle(isOn: flagValue) {
-                Text("Flag")
-            }
-            .disabled(!matchFlag.wrappedValue)
         }
     }
 }
