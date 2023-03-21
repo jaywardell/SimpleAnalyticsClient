@@ -10,16 +10,17 @@ import SwiftUI
 struct FilterByBoolView: View {
     let title: String
     @Binding var value: Bool?
+    @State private var lastValue = false
         
     var body: some View {
         let matchFlag = Binding<Bool>(
             get: { value != nil },
-            set: { value = ($0 == true) ? false : nil }
+            set: { value = ($0 == true) ? lastValue : nil }
         )
         
         let flagValue = Binding<Bool>(
-            get: { value ?? false },
-            set: { value = $0 }
+            get: { value ?? lastValue },
+            set: { value = $0; lastValue = $0 }
         )
 
         return Group {
