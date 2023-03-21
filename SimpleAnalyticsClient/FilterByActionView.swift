@@ -25,18 +25,14 @@ struct FilterByActionView: View {
         return HStack {
             
             Toggle(isOn: matchFlag) {
-                Text("")
+                Picker("Action", selection: flagValue, content: {
+                    ForEach(UserEvent.Action.allCases, id: \.rawValue) { action in
+                        Text(action.rawValue)
+                    }
+                })
+                .disabled(!matchFlag.wrappedValue)
             }
             
-            Picker("Action", selection: flagValue, content: {
-                ForEach(UserEvent.Action.allCases, id: \.rawValue) { action in
-                    Text(action.rawValue)
-                }
-            })
-//            Toggle(isOn: flagValue) {
-//                Text("Flag")
-//            }
-            .disabled(!matchFlag.wrappedValue)
         }
     }
 }
