@@ -18,45 +18,19 @@ struct FilterView: View {
             GridRow {
                 FilterByBoolView(title: "Flag", value: $flag)
                     .onChange(of: flag) { newValue in
-                        print(newValue)
+                        print(String(describing: newValue))
                     }
             }
 
             GridRow {
                 FilterByActionView(value: $action)
                     .onChange(of: action) { newValue in
-                        print(newValue?.rawValue)
+                        print(String(describing: newValue))
                     }
             }
         }
     }
     
-//    var body: some View {
-//        let matchFlag = Binding<Bool>(
-//            get: { flag != nil },
-//            set: { flag = ($0 == true) ? false : nil }
-//        )
-//
-//        let flagValue = Binding<Bool>(
-//            get: { flag ?? false },
-//            set: { flag = $0 }
-//        )
-//
-//        return HStack {
-//
-//            Toggle(isOn: matchFlag) {
-//                Text("")
-//            }
-//            Toggle(isOn: flagValue) {
-//                Text("Flag")
-//            }
-////            .padding(.leading)
-//            .disabled(!matchFlag.wrappedValue)
-//        }
-//        .onChange(of: flag) { newValue in
-//            print(newValue)
-//        }
-//    }
 }
 
 struct FilterView_Previews: PreviewProvider {
