@@ -25,18 +25,14 @@ struct FilterByBoolView: View {
         return Group {
             
             Toggle(isOn: matchFlag) {
-//                Picker(selection: flagValue, content: {
-//                    Text("True").tag(true)
-//                    Text("False").tag(false)
-//                }, label: {
-//                    Text(title)
-//                })
-//                .pickerStyle(.radioGroup)
+                Text("\(title):")
             }
 
-            Toggle(isOn: flagValue) {
-                Text("Flag")
-            }
+            Picker(selection: flagValue, content: {
+                Text("True").tag(true)
+                Text("False").tag(false)
+            }, label: {
+            })
             .disabled(!matchFlag.wrappedValue)
         }
     }

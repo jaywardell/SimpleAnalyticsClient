@@ -25,6 +25,7 @@ struct FilterByActionView: View {
         return Group {
             
             Toggle(isOn: matchAction) {
+                Text("Action:")
             }
 
             Picker("Action", selection: flagValue, content: {
@@ -32,6 +33,7 @@ struct FilterByActionView: View {
                     Text(action.rawValue)
                 }
             })
+            .labelsHidden()
             .disabled(!matchAction.wrappedValue)
 
         }
