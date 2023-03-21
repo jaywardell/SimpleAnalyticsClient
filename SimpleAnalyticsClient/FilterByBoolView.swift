@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FilterByBoolView: View {
+    let title: String
     @Binding var value: Bool?
         
     var body: some View {
@@ -24,6 +25,13 @@ struct FilterByBoolView: View {
         return HStack {
             
             Toggle(isOn: matchFlag) {
+//                Picker(selection: flagValue, content: {
+//                    Text("True").tag(true)
+//                    Text("False").tag(false)
+//                }, label: {
+//                    Text(title)
+//                })
+//                .pickerStyle(.radioGroup)
                 Toggle(isOn: flagValue) {
                     Text("Flag")
                 }

@@ -14,7 +14,7 @@ struct FilterView: View {
     @State private var action: UserEvent.Action?
 
     var body: some View {
-        FilterByBoolView(value: $flag)
+        FilterByBoolView(title: "Flag", value: $flag)
             .onChange(of: flag) { newValue in
                 print(newValue)
             }
