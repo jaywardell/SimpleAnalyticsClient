@@ -10,16 +10,17 @@ import SimpleAnalyticsTypes
 
 struct FilterByActionView: View {
     @Binding var value: UserEvent.Action?
+    @State private var lastValue: UserEvent.Action = .start
         
     var body: some View {
         let matchAction = Binding<Bool>(
             get: { value != nil },
-            set: { value = ($0 == true) ? .start : nil }
+            set: { value = ($0 == true) ? lastValue : nil }
         )
         
         let flagValue = Binding<String>(
-            get: { value?.rawValue ?? UserEvent.Action.start.rawValue },
-            set: { value = UserEvent.Action(rawValue: $0) }
+            get: { value?.rawValue ?? lastValue.rawValue },
+            set: { value = UserEvent.Action(rawValue: $0); lastValue = UserEvent.Action(rawValue: $0)! }
         )
 
         return Group {
