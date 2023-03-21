@@ -6,15 +6,22 @@
 //
 
 import SwiftUI
+import SimpleAnalyticsTypes
 
 struct FilterView: View {
     
     @State private var flag: Bool?
-  
+    @State private var action: UserEvent.Action?
+
     var body: some View {
         FilterByBoolView(value: $flag)
             .onChange(of: flag) { newValue in
                 print(newValue)
+            }
+        
+        FilterByActionView(value: $action)
+            .onChange(of: action) { newValue in
+                print(newValue?.rawValue)
             }
     }
     
