@@ -12,7 +12,7 @@ struct FilterByActionView: View {
     @Binding var value: UserEvent.Action?
         
     var body: some View {
-        let matchFlag = Binding<Bool>(
+        let matchAction = Binding<Bool>(
             get: { value != nil },
             set: { value = ($0 == true) ? .start : nil }
         )
@@ -24,13 +24,13 @@ struct FilterByActionView: View {
 
         return HStack {
             
-            Toggle(isOn: matchFlag) {
+            Toggle(isOn: matchAction) {
                 Picker("Action", selection: flagValue, content: {
                     ForEach(UserEvent.Action.allCases, id: \.rawValue) { action in
                         Text(action.rawValue)
                     }
                 })
-                .disabled(!matchFlag.wrappedValue)
+                .disabled(!matchAction.wrappedValue)
             }
             
         }
