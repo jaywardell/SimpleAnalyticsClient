@@ -12,19 +12,22 @@ struct FilterByBoolView: View {
     @Binding var value: Bool?
     @State private var lastValue = false
         
-    var body: some View {
-        let matchFlag = Binding<Bool>(
+    private var matchFlag: Binding<Bool> {
+        Binding<Bool>(
             get: { value != nil },
             set: { value = ($0 == true) ? lastValue : nil }
         )
-        
-        let flagValue = Binding<Bool>(
+    }
+
+    private var flagValue: Binding<Bool> {
+        Binding<Bool>(
             get: { value ?? lastValue },
             set: { value = $0; lastValue = $0 }
         )
+    }
 
-        return Group {
-            
+    var body: some View {
+        Group {
             Toggle(isOn: matchFlag) {
                 Text("\(title):")
             }
