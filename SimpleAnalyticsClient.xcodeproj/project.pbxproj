@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C6194A429CB3BAD00184F98 /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6194A329CB3BAD00184F98 /* FilterViewModel.swift */; };
 		7C6CE4EE29C9314A00CF37E9 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6CE4ED29C9314A00CF37E9 /* FilterView.swift */; };
 		7C6CE4F029C9374300CF37E9 /* FilterByBoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6CE4EF29C9374300CF37E9 /* FilterByBoolView.swift */; };
 		7C6CE4F229C9383000CF37E9 /* FilterByActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6CE4F129C9383000CF37E9 /* FilterByActionView.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C6194A329CB3BAD00184F98 /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
 		7C6CE4ED29C9314A00CF37E9 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		7C6CE4EF29C9374300CF37E9 /* FilterByBoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterByBoolView.swift; sourceTree = "<group>"; };
 		7C6CE4F129C9383000CF37E9 /* FilterByActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterByActionView.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				7CFD2D5329B4D67F00394C7E /* PostView.swift */,
 				7CFD2D5529B4D68500394C7E /* EventListView.swift */,
 				7C6CE4ED29C9314A00CF37E9 /* FilterView.swift */,
+				7C6194A329CB3BAD00184F98 /* FilterViewModel.swift */,
 				7C6CE4EF29C9374300CF37E9 /* FilterByBoolView.swift */,
 				7C6CE4F129C9383000CF37E9 /* FilterByActionView.swift */,
 				7CD56E6229C6A3B60037EF96 /* URLSession+Retrieval.swift */,
@@ -177,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CFD2D5629B4D68500394C7E /* EventListView.swift in Sources */,
+				7C6194A429CB3BAD00184F98 /* FilterViewModel.swift in Sources */,
 				7CFD2D5A29B4E4BE00394C7E /* URLRequest+Convenience.swift in Sources */,
 				7CFD2D5C29B4E4C200394C7E /* URLComponents+Convenience.swift in Sources */,
 				7CFD2D4729B4D66300394C7E /* ContentView.swift in Sources */,

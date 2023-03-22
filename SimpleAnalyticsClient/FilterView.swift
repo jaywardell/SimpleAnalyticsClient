@@ -8,23 +8,23 @@
 import SwiftUI
 import SimpleAnalyticsTypes
 
-struct FilterView: View {
-    
-    @State private var flag: Bool?
-    @State private var action: UserEvent.Action?
 
+struct FilterView: View {
+  
+    @Binding var viewModel: FilterViewModel
+    
     var body: some View {
         Grid(alignment: .leading) {
             GridRow {
-                FilterByBoolView(title: "Flag", value: $flag)
-                    .onChange(of: flag) { newValue in
+                FilterByBoolView(title: "Flag", value: $viewModel.flag)
+                    .onChange(of: viewModel.flag) { newValue in
                         print(String(describing: newValue))
                     }
             }
 
             GridRow {
-                FilterByActionView(value: $action)
-                    .onChange(of: action) { newValue in
+                FilterByActionView(value: $viewModel.action)
+                    .onChange(of: viewModel.flag) { newValue in
                         print(String(describing: newValue))
                     }
             }
@@ -34,7 +34,7 @@ struct FilterView: View {
 
 struct FilterView_Previews: PreviewProvider {
     static var previews: some View {
-        FilterView()
+        FilterView(viewModel: .constant(FilterViewModel()))
             .padding()
             .previewLayout(.fixed(width: 300, height: 100))
     }

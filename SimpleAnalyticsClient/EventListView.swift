@@ -21,13 +21,15 @@ struct EventListView: View {
     @State private var userCount = 0
     @State private var eventCount = 0
 
+    @State private var filterViewModel = FilterViewModel()
+    
     init(events: [Event]) {
         self.events = events
     }
     
     var body: some View {
         VStack {
-            FilterView()
+            FilterView(viewModel: $filterViewModel)
             List(events, id: \.self) { event in
                 HStack {
                     Image(systemName: event.flag ? "checkmark.circle" : "circle")
@@ -42,16 +44,18 @@ struct EventListView: View {
                 Text("\(userCount) users")
             }
         }
-        .task(retrieveEvents)
-        .task(retrieveUserCount)
-        .task(retrieveEventCount)
+        .task(reload)
+        .task(id: filterViewModel, reload)
     }
 
-    @Sendable private func retrieveUserCount() async {
+    @Sendable
+    private func retrieveUserCount() async {
         do {
             let components = URLComponents.testServer()
                 .addingPathComponent("users/count")
-            let request = URLRequest(components)!
+            let filtered = filterViewModel.filter(components)
+            
+            let request = URLRequest(filtered)!
 
             userCount = try await URLSession.shared.retrieve(request)
         }
@@ -60,11 +64,14 @@ struct EventListView: View {
         }
     }
 
-    @Sendable private func retrieveEventCount() async {
+    @Sendable
+    private func retrieveEventCount() async {
         do {
             let components = URLComponents.testServer()
                 .addingPathComponent("userevents/count")
-            let request = URLRequest(components)!
+            let filtered = filterViewModel.filter(components)
+            
+            let request = URLRequest(filtered)!
 
             eventCount = try await URLSession.shared.retrieve(request)
         }
@@ -73,11 +80,14 @@ struct EventListView: View {
         }
     }
 
-    @Sendable private func retrieveEvents() async {
+    @Sendable
+    private func retrieveEvents() async {
         do {
             let components = URLComponents.testServer()
                 .addingPathComponent("userevents")
-            let request = URLRequest(components)!
+            let filtered = filterViewModel.filter(components)
+            
+            let request = URLRequest(filtered)!
             
             let userevents: [UserEvent] = try await URLSession.shared.retrieve(request)
             events = userevents.map {
@@ -90,6 +100,13 @@ struct EventListView: View {
         catch {
             print(error.localizedDescription)
         }
+    }
+    
+    @Sendable
+    private func reload() async {
+        await retrieveEvents()
+        await retrieveEventCount()
+        await retrieveUserCount()
     }
 }
 
