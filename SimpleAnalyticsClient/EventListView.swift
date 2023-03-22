@@ -48,14 +48,18 @@ struct EventListView: View {
         .task(id: filterViewModel, reload)
     }
 
+    private func request(for endpoint: String) -> URLRequest {
+        let components = URLComponents.testServer()
+            .addingPathComponent(endpoint)
+        let filtered = filterViewModel.filter(components)
+        
+        return URLRequest(filtered)!
+    }
+    
     @Sendable
     private func retrieveUserCount() async {
         do {
-            let components = URLComponents.testServer()
-                .addingPathComponent("users/count")
-            let filtered = filterViewModel.filter(components)
-            
-            let request = URLRequest(filtered)!
+            let request = request(for: "users/count")
 
             userCount = try await URLSession.shared.retrieve(request)
         }
@@ -67,11 +71,7 @@ struct EventListView: View {
     @Sendable
     private func retrieveEventCount() async {
         do {
-            let components = URLComponents.testServer()
-                .addingPathComponent("userevents/count")
-            let filtered = filterViewModel.filter(components)
-            
-            let request = URLRequest(filtered)!
+            let request = request(for: "userevents/count")
 
             eventCount = try await URLSession.shared.retrieve(request)
         }
@@ -83,12 +83,8 @@ struct EventListView: View {
     @Sendable
     private func retrieveEvents() async {
         do {
-            let components = URLComponents.testServer()
-                .addingPathComponent("userevents")
-            let filtered = filterViewModel.filter(components)
-            
-            let request = URLRequest(filtered)!
-            
+            let request = request(for: "userevents")
+
             let userevents: [UserEvent] = try await URLSession.shared.retrieve(request)
             events = userevents.map {
                 Event(date: Date(timeIntervalSinceReferenceDate: $0.timestamp),
