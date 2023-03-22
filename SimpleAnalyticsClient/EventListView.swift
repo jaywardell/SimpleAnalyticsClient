@@ -56,11 +56,9 @@ struct EventListView: View {
         return URLRequest(filtered)!
     }
     
-    @Sendable
     private func retrieveUserCount() async {
         do {
             let request = request(for: "users/count")
-
             userCount = try await URLSession.shared.retrieve(request)
         }
         catch {
@@ -68,11 +66,9 @@ struct EventListView: View {
         }
     }
 
-    @Sendable
     private func retrieveEventCount() async {
         do {
             let request = request(for: "userevents/count")
-
             eventCount = try await URLSession.shared.retrieve(request)
         }
         catch {
@@ -80,11 +76,9 @@ struct EventListView: View {
         }
     }
 
-    @Sendable
     private func retrieveEvents() async {
         do {
             let request = request(for: "userevents")
-
             let userevents: [UserEvent] = try await URLSession.shared.retrieve(request)
             events = userevents.map {
                 Event(date: Date(timeIntervalSinceReferenceDate: $0.timestamp),
