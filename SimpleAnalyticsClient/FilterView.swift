@@ -30,11 +30,12 @@ struct FilterView: View {
             }
         }
     }
-    
 }
 
 struct FilterView_Previews: PreviewProvider {
     static var previews: some View {
         FilterView()
+            .padding()
+            .previewLayout(.fixed(width: 300, height: 100))
     }
 }
